@@ -81,7 +81,8 @@
     </style>
 </head>
 
-<body class="min-h-screen lg:h-screen w-full flex flex-col overflow-x-hidden overflow-y-auto lg:overflow-hidden text-sm select-none bg-[#040806]">
+<body
+    class="min-h-screen lg:h-screen w-full flex flex-col overflow-x-hidden overflow-y-auto lg:overflow-hidden text-sm select-none bg-[#040806]">
 
     <!-- TOP NAV BAR -->
     <header
@@ -118,7 +119,8 @@
     <div class="flex-1 flex flex-col lg:flex-row relative min-h-0 min-w-0">
 
         <!-- LEFT SIDEBAR: CONTROLS & FORM (Order 2 on Mobile, Order 1 on Desktop) -->
-        <aside class="order-2 lg:order-1 w-full lg:w-[380px] lg:h-full glass-panel flex flex-col shrink-0 z-20 overflow-y-visible lg:overflow-y-auto">
+        <aside
+            class="order-2 lg:order-1 w-full lg:w-[380px] lg:h-full glass-panel flex flex-col shrink-0 z-20 overflow-y-visible lg:overflow-y-auto">
 
             <div class="p-4 space-y-4">
 
@@ -442,13 +444,13 @@
         let userBgImg = new Image();
         userBgImg.onload = () => renderCanvas();
         userBgImg.onerror = (err) => console.warn("Local BG load issue:", err);
-        userBgImg.src = (typeof bgDataUrlA !== 'undefined') ? bgDataUrlA : "Gemini_Generated_Image_8lmkdm8lmkdm8lmk.png";
+        userBgImg.src = (typeof bgDataUrlA !== 'undefined') ? bgDataUrlA : "1.png";
 
         // Custom Background Image from workspace (Format B Vertical 4:5 Base64 Data URL)
         let userBgImgB = new Image();
         userBgImgB.onload = () => renderCanvas();
         userBgImgB.onerror = (err) => console.warn("Local BG B load issue:", err);
-        userBgImgB.src = (typeof bgDataUrlB !== 'undefined') ? bgDataUrlB : "Gemini_Generated_Image_f5uq98f5uq98f5uq.png";
+        userBgImgB.src = (typeof bgDataUrlB !== 'undefined') ? bgDataUrlB : "2.png";
 
         function handleBgUpload(e) {
             const file = e.target.files[0];
