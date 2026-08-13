@@ -69,6 +69,27 @@
   background: #ffe94d;
 }
 
+@media (max-width: 640px) {
+  .site-nav {
+    padding: 0 0.75rem;
+    height: 50px;
+  }
+  .nav-brand img {
+    height: 20px;
+  }
+  .nav-right {
+    gap: 0.35rem;
+  }
+  .nav-pill-outline, .nav-pill-filled {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6rem;
+    white-space: nowrap;
+  }
+  #navHHGoa {
+    display: none;
+  }
+}
+
 /* ---------- Hero Section (two-column) ---------- */
 .hero {
   background: var(--color-green);
