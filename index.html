@@ -4,363 +4,424 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HH Goa 2026 | Frame Studio — Official PFP & Builder Pass Generator</title>
+  <title>HH Goa 2026 | Official PFP & Builder Pass Generator</title>
   <meta name="description" content="Create your official Hacker House Goa 2026 PFP frame overlay or VIP Builder Pass. Upload any photo, personalize with your name, stack, and builder class — download and share in seconds. #FrameInGoa">
 
-  <!-- OG / Twitter Meta -->
-  <meta property="og:title" content="HH Goa 2026 Frame Studio — PFP & Builder Pass Generator">
-  <meta property="og:description" content="Create your official Hacker House Goa 2026 identity. Upload, customize, download, share. Zero accounts needed.">
-  <meta property="og:image" content="assets/Sun rise.png">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="HH Goa 2026 Frame Studio">
-  <meta name="twitter:description" content="Build your official HH Goa 2026 PFP frame or Builder Pass. #FrameInGoa">
-  <meta name="twitter:image" content="assets/Sun rise.png">
-
-  <!-- Google Fonts: Imbue (display) + Victor Mono (UI/mono) + Rozha One (devanagari) -->
+  <!-- Google Fonts: Imbue + Playfair Display + Victor Mono + Rozha One -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,400;10..100,700&family=Rozha+One&family=Victor+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,700;10..100,900&family=Playfair+Display:ital,wght@0,800;0,900;1,800;1,900&family=Rozha+One&family=Victor+Mono:ital,wght@0,500;0,700;1,600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- HEIC Support -->
-  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  <style>
+    :root {
+      --bg-green: #04361e;
+      --bg-green-deep: #022413;
+      --brand-yellow: #FFDE00;
+      --brand-pink: #FF007F;
+      --brand-cyan: #00E5FF;
+      --text-sand: #F7F4EA;
+    }
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/landing.css">
-  <link rel="stylesheet" href="css/studio.css">
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-green);
+      color: var(--text-sand);
+      font-family: 'Victor Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 30%, rgba(6, 122, 67, 0.4) 0%, transparent 70%),
+        radial-gradient(circle at 10% 80%, rgba(255, 0, 127, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 222, 0, 0.08) 0%, transparent 40%);
+    }
+
+    /* Pixel Grid Texture Overlay */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 222, 0, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Header Nav */
+    .header-nav {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .brand-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--brand-yellow);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-sub {
+      font-family: 'Victor Mono', monospace;
+      font-size: 0.65rem;
+      color: rgba(247, 244, 234, 0.6);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-btn-create {
+      background: var(--brand-yellow);
+      color: #000;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 0.95rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid #000;
+      border-radius: 4px;
+      text-decoration: none;
+      box-shadow: 4px 4px 0px #000;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-btn-create:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000;
+      background: #fff066;
+    }
+
+    .nav-btn-create:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #000;
+    }
+
+    /* Hero Section */
+    .hero-container {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.25rem 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .hero-headline-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', 'Imbue', serif;
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      font-weight: 900;
+      color: var(--brand-yellow);
+      line-height: 0.9;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .hero-badge-goa {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-6deg);
+      background: var(--brand-pink);
+      color: var(--brand-yellow);
+      font-family: 'Rozha One', serif;
+      font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+      padding: 0.2rem 1.2rem;
+      border-radius: 8px;
+      border: 2px solid var(--brand-yellow);
+      box-shadow: 0 10px 25px rgba(255, 0, 127, 0.5), 0 0 0 2px #000;
+      white-space: nowrap;
+      animation: floatBadge 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBadge {
+      0% { transform: translate(-50%, -55%) rotate(-6deg); }
+      100% { transform: translate(-50%, -45%) rotate(-4deg); }
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(2, 36, 19, 0.85);
+      border: 1px solid rgba(255, 222, 0, 0.3);
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      font-size: clamp(0.75rem, 2vw, 0.875rem);
+      color: var(--text-sand);
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .meta-pill-dot {
+      width: 8px;
+      height: 8px;
+      background: #00FF66;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #00FF66;
+      animation: pulseDot 1.5s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero-tagline {
+      font-family: 'Victor Mono', monospace;
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: #fff;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    .main-cta-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .btn-hero-launch {
+      width: 100%;
+      background: var(--brand-pink);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      padding: 1.1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 2px solid var(--brand-yellow);
+      box-shadow: 0 10px 30px rgba(255, 0, 127, 0.4);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .btn-hero-launch:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 0, 127, 0.6);
+      background: #ff1a8c;
+    }
+
+    .trust-badges {
+      font-size: 0.75rem;
+      color: rgba(247, 244, 234, 0.6);
+      letter-spacing: 0.5px;
+    }
+
+    /* Showcase Cards */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1050px;
+      width: 100%;
+      margin: 3rem auto 2rem;
+      padding: 0 1.25rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .feature-card {
+      background: rgba(2, 36, 19, 0.75);
+      border: 1px solid rgba(255, 222, 0, 0.2);
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-align: left;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--brand-yellow);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .feature-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brand-yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      font-size: 0.825rem;
+      color: rgba(247, 244, 234, 0.75);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .site-footer {
+      position: relative;
+      z-index: 10;
+      margin-top: auto;
+      padding: 2rem 1.25rem;
+      border-top: 1px solid rgba(255, 222, 0, 0.15);
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(247, 244, 234, 0.5);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--brand-yellow);
+      text-decoration: underline;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 640px) {
+      .header-nav {
+        padding: 1rem;
+      }
+      .nav-btn-create {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.8rem;
+      }
+      .brand-title {
+        font-size: 1.1rem;
+      }
+      .hero-container {
+        padding: 2rem 1rem 3rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ===================== 1. NAV ===================== -->
-  <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-brand">
-      <img src="assets/Hacker house.png" alt="Hacker House" id="nav-logo">
+  <div class="grid-bg"></div>
+
+  <!-- HEADER NAV -->
+  <header class="header-nav">
+    <a href="index.html" class="brand-logo">
+      <span class="brand-title">2:47 PM STUDIO</span>
+      <span class="brand-sub">HH GOA 2026 EDITION</span>
+    </a>
+    <a href="studio.html" class="nav-btn-create">
+      CREATE ⚡
+    </a>
+  </header>
+
+  <!-- HERO CENTER STAGE -->
+  <main class="hero-container">
+
+    <div class="hero-headline-wrapper">
+      <h1 class="hero-headline">HACKER HOUSE</h1>
+      <span class="hero-badge-goa">गोवा</span>
     </div>
-    <div class="nav-right">
-      <a href="studio.html" class="nav-pill-outline" style="border-color: #FF007F; color: #FF007F; font-weight: 700;">
-        Frame Studio ⚡
+
+    <div class="meta-pill">
+      <span class="meta-pill-dot"></span>
+      <span>GOA, INDIA · 28 – 31 OCT 2026 · 247 SEATS</span>
+    </div>
+
+    <p class="hero-tagline">
+      One photo. One frame. Everything in place.<br>
+      Create your official profile frame overlay or VIP Builder Pass in seconds.
+    </p>
+
+    <div class="main-cta-box">
+      <a href="studio.html" class="btn-hero-launch">
+        <span>🚀 OPEN FRAME STUDIO</span>
       </a>
-      <a href="https://hhgoa.com" target="_blank" rel="noopener noreferrer" class="nav-pill-outline" id="navHHGoa">
-        HHGOA.COM
-      </a>
-      <a href="https://hacker-house-goa-2026.devfolio.co/" target="_blank" rel="noopener noreferrer" class="nav-pill-filled" id="navApply">
-        247 seats · apply
-      </a>
-    </div>
-  </nav>
-
-  <!-- ===================== 2. HERO (two-column) ===================== -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <!-- Lockup -->
-      <div class="hero-lockup">
-        <img src="assets/Hacker house.png" alt="HACKER HOUSE">
-        <span class="hero-goa-badge">गोवा</span>
-      </div>
-
-      <div class="hero-inner">
-        <!-- Left column -->
-        <div class="hero-left">
-          <p class="hero-date">GOA, INDIA · 28-31 OCT <span class="hero-date-chip">2026</span></p>
-          <h1 class="hero-headline">
-            one photo.<br>
-            one frame.<br>
-            everything in place.
-          </h1>
-          <p class="hero-subhead">
-            Drop in a picture and take out an HH Goa 2026 profile frame, a builder ID with your name and stack, or one frame for your whole crew. Drawn in your browser in a few hundred milliseconds.
-          </p>
-          <div class="hero-cta-row">
-            <a href="studio.html" class="action-btn action-btn-pink" id="heroCta">Launch Studio & Make Yours ⚡</a>
-            <span class="hero-trust">no account · nothing uploaded · #frameingoa</span>
-          </div>
-        </div>
-
-        <!-- Right column: illustration -->
-        <div class="hero-right">
-          <img src="assets/Sun rise.png" alt="Goa beachfront at sunrise" width="700" height="440">
-        </div>
-      </div>
+      <span class="trust-badges">No Account Required · 100% On-Device · #FrameInGoa</span>
     </div>
 
-    <!-- Marquee Ticker -->
-    <div class="marquee-strip">
-      <div class="marquee-track" aria-hidden="true">
-        <span>LESS NOISE. MORE SIGNAL. ◆ 2:47 PM STUDIO ◆ GOA, INDIA ◆ 28-31 OCT 2026 ◆ 247 SEATS ◆ #FRAMEINGOA ◆ HACKER HOUSE गोवा ◆&nbsp;</span>
-        <span>LESS NOISE. MORE SIGNAL. ◆ 2:47 PM STUDIO ◆ GOA, INDIA ◆ 28-31 OCT 2026 ◆ 247 SEATS ◆ #FRAMEINGOA ◆ HACKER HOUSE गोवा ◆&nbsp;</span>
-      </div>
+  </main>
+
+  <!-- FEATURE CARDS SHOWCASE -->
+  <section class="showcase-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🖼️</span>
+      <h3 class="feature-title">Format A: PFP Frame</h3>
+      <p class="feature-desc">Official 2000×2000 circular ring overlay with tropical Goan artwork and Hindi "गोवा" badge for your X profile picture.</p>
+    </div>
+
+    <div class="feature-card" style="border-color: rgba(255, 0, 127, 0.4);">
+      <span class="feature-icon">🎫</span>
+      <h3 class="feature-title" style="color: var(--brand-pink);">Format B: VIP Builder Pass</h3>
+      <p class="feature-desc">Horizontal 2000×1200 event pass badge with your name, tech stack pills, custom builder title, and verified barcode stamp.</p>
+    </div>
+
+    <div class="feature-card" style="border-color: rgba(0, 229, 255, 0.4);">
+      <span class="feature-icon">📸</span>
+      <h3 class="feature-title" style="color: var(--brand-cyan);">Live Selfie & HEIC</h3>
+      <p class="feature-desc">Upload JPG, PNG, HEIC from iPhone, or snap a live webcam selfie directly into the canvas with instant rendering.</p>
     </div>
   </section>
 
-  <!-- ===================== 3. STUDIO INTRO ===================== -->
-  <div class="studio-intro" id="studioIntro">
-    <div class="container">
-      <span class="section-eyebrow">The Studio</span>
-      <h2 class="studio-intro-title">Upload a photo. Take the frame. Post it.</h2>
-      <p class="studio-intro-desc">JPG, PNG, WebP and HEIC at any shape, no cropping first. Everything is drawn here on your device, so the picture never leaves it.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="studio.html">Frame Studio</a>
+      <span>·</span>
+      <a href="https://hhgoa.com" target="_blank" rel="noopener noreferrer">HHGOA.COM ↗</a>
+      <span>·</span>
+      <a href="https://hacker-house-goa-2026.devfolio.co/" target="_blank" rel="noopener noreferrer">Devfolio Application ↗</a>
     </div>
-  </div>
-
-  <!-- ===================== 4. STUDIO SHOWCASE & LAUNCHER ===================== -->
-  <section class="studio-section" id="studio" style="padding: 3rem 1.5rem; text-align: center;">
-    <div class="container" style="max-width: 1000px; margin: 0 auto;">
-      <div style="background: rgba(4, 22, 15, 0.95); border: 2px solid #FFDE00; border-radius: 24px; padding: 2.5rem 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.8); position: relative; overflow: hidden;">
-        
-        <span class="section-eyebrow" style="color: #FF007F; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 12px;">Studio Features</span>
-        <h2 style="font-family: 'Imbue', serif; font-size: 3rem; color: #FFDE00; margin: 0.5rem 0 1rem; line-height: 1.1;">Two Formats. Zero Lag. Total Control.</h2>
-        <p style="color: #F7F4EA; max-width: 650px; margin: 0 auto 2rem; font-size: 0.95rem; opacity: 0.9;">
-          Create your official PFP overlay frame (2000×2000) or VIP Builder Pass (2000×1200) with your custom stack, role, and builder title. Rendered live in your browser in milliseconds.
-        </p>
-
-        <!-- Feature Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; text-align: left;">
-          <div style="background: #031F14; border: 1px solid rgba(255,222,0,0.2); padding: 1.25rem; border-radius: 16px;">
-            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🖼️</div>
-            <h3 style="color: #FFDE00; font-weight: 700; margin-bottom: 0.25rem; font-size: 1rem;">Format A: PFP Frame</h3>
-            <p style="color: #aaa; font-size: 0.825rem; margin: 0;">Official circular overlay frame with Goan tropical graphics and Hindi "गोवा" badge for your X profile picture.</p>
-          </div>
-
-          <div style="background: #031F14; border: 1px solid rgba(255,0,127,0.3); padding: 1.25rem; border-radius: 16px;">
-            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎫</div>
-            <h3 style="color: #FF007F; font-weight: 700; margin-bottom: 0.25rem; font-size: 1rem;">Format B: VIP Builder Pass</h3>
-            <p style="color: #aaa; font-size: 0.825rem; margin: 0;">Horizontal event badge with your name, tech stack pills, custom builder title, and verified QR/barcode stamp.</p>
-          </div>
-
-          <div style="background: #031F14; border: 1px solid rgba(0,229,255,0.3); padding: 1.25rem; border-radius: 16px;">
-            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📸</div>
-            <h3 style="color: #00E5FF; font-weight: 700; margin-bottom: 0.25rem; font-size: 1rem;">Live Camera & HEIC</h3>
-            <p style="color: #aaa; font-size: 0.825rem; margin: 0;">Upload JPG, PNG, HEIC from iPhone, or snap a live webcam selfie directly into the frame with zero delay.</p>
-          </div>
-        </div>
-
-        <!-- Big CTA Button -->
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-          <a href="studio.html" class="action-btn action-btn-pink" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-radius: 14px; text-decoration: none; box-shadow: 0 10px 30px rgba(255,0,127,0.4);">
-            🚀 Open Frame Studio & Pass Generator
-          </a>
-          <span style="color: #888; font-size: 0.8rem; font-family: monospace;">No signup · 100% On-Device · #FrameInGoa</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 5. INSIDE THE ROOM ===================== -->
-  <section class="section agenda-section" id="agenda">
-    <div class="container">
-      <span class="section-eyebrow">Inside the room</span>
-      <h2 class="section-title">4 days. one rhythm. everything intentional.</h2>
-      <p class="section-subtitle">programme as published at hhgoa.com</p>
-
-      <div class="agenda-grid fade-on-scroll">
-        <div class="agenda-card">
-          <div class="agenda-day-num">Day 01</div>
-          <div class="agenda-day-name">Genesis Day</div>
-          <div class="agenda-day-tagline">"where it all begins"</div>
-        </div>
-        <div class="agenda-card">
-          <div class="agenda-day-num">Day 02</div>
-          <div class="agenda-day-name">Day of Triangle</div>
-          <div class="agenda-day-tagline">"problem. solution. market."</div>
-        </div>
-        <div class="agenda-card">
-          <div class="agenda-day-num">Day 03</div>
-          <div class="agenda-day-name">Build Day</div>
-          <div class="agenda-day-tagline">"heads down. ship or ship."</div>
-        </div>
-        <div class="agenda-card">
-          <div class="agenda-day-num">Day 04</div>
-          <div class="agenda-day-name">Launch Day</div>
-          <div class="agenda-day-tagline">"the world watches."</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 6. STATS STRIP ===================== -->
-  <section class="stats-strip" id="stats">
-    <div class="container">
-      <div class="stats-grid fade-on-scroll">
-        <div class="stat-item">
-          <div class="stat-number" data-count="12000" data-suffix="+">0</div>
-          <div class="stat-label">Registrations 2024</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="350" data-suffix="+">0</div>
-          <div class="stat-label">Projects Built</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="247">0</div>
-          <div class="stat-label">Builder Seats</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number" data-count="100" data-prefix="$" data-suffix="k+">0</div>
-          <div class="stat-label">Bounties 2026</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 7. ROADMAP ===================== -->
-  <section class="section roadmap-section" id="roadmap">
-    <div class="container">
-      <span class="section-eyebrow">The Roadmap</span>
-      <h2 class="section-title">the timeline at a glance</h2>
-
-      <div class="roadmap-layout">
-        <div class="roadmap-illustration fade-on-scroll">
-          <img src="assets/details.png" alt="Roadmap illustration">
-        </div>
-        <div class="roadmap-content">
-          <div class="roadmap-timeline fade-on-scroll">
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Registration Begins</div>
-              <div class="roadmap-item-desc">Applications open — start your HH GOA journey.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Open Trials</div>
-              <div class="roadmap-item-desc">Skill-based challenges open to everyone.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Alpha → Beta → Charlie Selections</div>
-              <div class="roadmap-item-desc">Progressive shortlisting: technical review, portfolio, interviews.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Delta Selections</div>
-              <div class="roadmap-item-desc">Final shortlist confirmed before partner matching.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Partner Trials</div>
-              <div class="roadmap-item-desc">Selection based on partner requirements and interests.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">RSVP & Stake</div>
-              <div class="roadmap-item-desc">Final confirmation of your team's participation.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Registration Ends</div>
-              <div class="roadmap-item-desc">Last day to register — no new entries after this date.</div>
-            </div>
-            <div class="roadmap-item">
-              <div class="roadmap-item-title">Residency</div>
-              <div class="roadmap-item-desc">247 builders come together to build, ship, and launch in Goa.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 8. FAQ ===================== -->
-  <section class="section faq-section" id="faq">
-    <div class="container">
-      <span class="section-eyebrow">FAQ</span>
-      <h2 class="section-title">questions & answers</h2>
-
-      <div class="faq-list fade-on-scroll">
-        <details class="faq-item" id="faqAccount">
-          <summary>Do I need an account to use this tool?</summary>
-          <div class="faq-answer">No. Zero accounts needed. The Frame Studio runs entirely in your browser — no sign-ups, no logins, no server-side processing. Just upload, customize, and download.</div>
-        </details>
-        <details class="faq-item" id="faqPhoto">
-          <summary>Is my photo uploaded to any server?</summary>
-          <div class="faq-answer">Never. All photo processing happens 100% on your device. Your image never leaves your browser. We don't have a server to upload to — the entire tool is static HTML, CSS, and JavaScript.</div>
-        </details>
-        <details class="faq-item" id="faqMobile">
-          <summary>Does this work on my phone?</summary>
-          <div class="faq-answer">Yes! The studio is built mobile-first. You can upload photos, adjust settings, and download your graphic directly on any modern smartphone browser.</div>
-        </details>
-        <details class="faq-item" id="faqSeat">
-          <summary>Does making a frame give me a seat at HH Goa?</summary>
-          <div class="faq-answer">No — this is an Open Trials submission tool, not a ticket. To apply for one of the 247 seats, submit through the <a href="https://hacker-house-goa-2026.devfolio.co/" target="_blank" rel="noopener noreferrer" style="color: var(--color-yellow); text-decoration: underline;">official Devfolio application</a>.</div>
-        </details>
-        <details class="faq-item" id="faqFormats">
-          <summary>What file formats are supported?</summary>
-          <div class="faq-answer">Upload any standard image: JPG, PNG, WebP, and even iPhone HEIC photos (automatically converted). The output is always a high-resolution PNG.</div>
-        </details>
-        <details class="faq-item" id="faqSpeed">
-          <summary>How fast is it?</summary>
-          <div class="faq-answer">Seconds from upload to shareable output. The canvas renders in real-time as you adjust controls. Download is instant — no processing queue, no waiting.</div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 9. CLOSING CTA ===================== -->
-  <section class="cta-band" id="ctaBand">
-    <div class="cta-band-bg">
-      <img src="assets/hackers.png" alt="">
-    </div>
-    <div class="cta-band-content">
-      <div class="cta-band-eyebrow">247 Seats</div>
-      <h2 class="cta-band-headline">The frame is free.<br>The seat is not.</h2>
-      <p class="cta-band-sub">Applications for Hacker House Goa 2026 run on Devfolio. This tool is how the room gets loud before it fills up.</p>
-      <div class="cta-buttons">
-        <a href="https://hacker-house-goa-2026.devfolio.co/" target="_blank" rel="noopener noreferrer" class="action-btn action-btn-yellow" id="ctaApply">
-          Apply on Devfolio
-        </a>
-        <a href="studio.html" class="action-btn action-btn-outline" id="ctaBack">
-          Launch Frame Studio 🚀
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 10. FOOTER ===================== -->
-  <footer class="site-footer" id="footer">
-    <img src="assets/footer trees.png" alt="Tropical treeline" class="footer-treeline" loading="lazy">
-    <div class="container">
-      <div class="footer-content">
-        <img src="assets/Hacker house.png" alt="Hacker House" class="footer-wordmark">
-        <p class="footer-facts">GOA, INDIA · 28–31 OCT 2026 · 247 SEATS · 2:47 PM STUDIO</p>
-        <p class="footer-tagline">"less noise. more signal."</p>
-        <p class="footer-disclaimer">
-          This is an independent/fan-built tool created for the HH Goa 2026 Open Trials (Task #1: Frame / ID Card Generator).
-          The "Hacker House", "HH Goa", and "2:47 PM Studio" marks belong to their respective owners.
-          All photo processing happens entirely on-device — no images are uploaded or stored.
-          © 2026 — Built with 🌴 for #FrameInGoa
-        </p>
-      </div>
-    </div>
+    <p>Hacker House Goa 2026 Open Trials · Task #1: Frame / ID Card Generator · #FrameInGoa</p>
   </footer>
-
-  <!-- ===================== SHARE MODAL ===================== -->
-  <div id="shareModal" class="share-modal-overlay hidden" role="dialog" aria-label="Share to X">
-    <div class="share-modal">
-      <button class="share-modal-close" onclick="closeShareModal()" aria-label="Close">✕</button>
-      <div class="share-modal-header">
-        <div class="share-modal-icon">
-          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </div>
-        <div>
-          <div class="share-modal-title">Share to X (#FrameInGoa)</div>
-          <div class="share-modal-subtitle">Post your HH Goa 2026 graphic</div>
-        </div>
-      </div>
-      <div class="share-caption-area">
-        <label class="field-label" for="tweetCaption" style="margin-bottom: 0.25rem;">Tweet Caption:</label>
-        <textarea id="tweetCaption" rows="4" readonly></textarea>
-      </div>
-      <div class="share-tip">
-        <span>💡</span>
-        <span>Clicking <strong>Launch Tweet</strong> opens X with your caption ready. Attach your downloaded graphic!</span>
-      </div>
-      <div class="share-actions">
-        <button class="share-btn-copy" onclick="copyTweetText()" id="btnCopyCaption">📋 Copy Caption</button>
-        <button class="share-btn-tweet" onclick="executeTweetShare()" id="btnPostTweet">🚀 Launch Tweet on X</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== SCRIPTS ===================== -->
-  <script src="bgData.js"></script>
-  <script src="js/builderClass.js"></script>
-  <script src="js/canvasExport.js"></script>
-  <script src="js/studio.js"></script>
-  <script src="js/share.js"></script>
-  <script src="js/main.js"></script>
 
 </body>
 </html>
