@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#040806]">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hacker House Goa 2026 | Official PFP & Builder Pass Generator</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- HEIC Image Conversion -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Rozha+One&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldDark: '#063D27',
+                        emeraldDeep: '#031F14',
+                        emeraldLight: '#0A5C36',
+                        brandPink: '#FF007F',
+                        brandYellow: '#FFDE00',
+                        brandCream: '#F7F4EA',
+                        brandCyan: '#00E5FF',
+                        darkBg: '#050B08',
+                        darkCard: '#0A150F'
+                    },
+                    fontFamily: {
+                        serifTitle: ['"Playfair Display"', 'serif'],
+                        devanagari: ['"Rozha One"', 'serif'],
+                        sansHeader: ['"Syne"', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #040806;
+            color: #F7F4EA;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #031F14;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FF007F;
+            border-radius: 10px;
+        }
+
+        /* Glassmorphic Panel */
+        .glass-panel {
+            background: rgba(8, 22, 15, 0.85);
+            backdrop-filter: blur(16px);
+            border-right: 1px solid rgba(255, 222, 0, 0.15);
+        }
+
+        /* Range input styling */
+        input[type=range] {
+            accent-color: #FFDE00;
+        }
+    </style>
+</head>
+
+<body
+    class="min-h-screen lg:h-screen w-full flex flex-col overflow-x-hidden overflow-y-auto lg:overflow-hidden text-sm select-none bg-[#040806]">
+
+    <!-- TOP NAV BAR -->
+    <header
+        class="h-14 w-full bg-[#03150C] border-b border-[#0A452D] px-4 lg:px-6 flex items-center justify-between z-30 shrink-0">
+        <div class="flex items-center gap-3">
+            <div class="relative flex items-center justify-center">
+                <span class="font-serifTitle text-2xl font-black text-brandYellow leading-none tracking-tight">HACKER
+                    HOUSE</span>
+                <span
+                    class="ml-2 bg-brandPink text-brandYellow font-devanagari text-xs px-2 py-0.5 rounded font-bold border border-brandYellow shadow-sm">गोवा</span>
+            </div>
+            <span
+                class="hidden md:inline-block text-xs font-mono text-gray-400 border-l border-emeraldLight/40 pl-3">GOA
+                2026 EDITION</span>
+        </div>
+
+        <!-- Event Meta Badges -->
+        <div class="flex items-center gap-3">
+            <div
+                class="hidden sm:flex items-center gap-2 bg-[#062619] border border-emeraldLight/50 px-3 py-1 rounded-full text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-gray-300 font-medium">OCT 28–31, 2026</span>
+                <span class="text-gray-500">•</span>
+                <span class="text-brandYellow font-bold">247 SEATS</span>
+            </div>
+            <a href="index.html"
+                class="text-xs text-brandYellow hover:text-white transition-colors font-mono font-bold bg-brandPink/20 border border-brandPink/60 px-2.5 py-1 rounded-lg">
+                ← Home
+            </a>
+            <a href="https://hhgoa.com" target="_blank" rel="noopener noreferrer"
+                class="text-xs text-gray-300 hover:text-brandYellow transition-colors font-mono underline decoration-brandPink decoration-2 underline-offset-4">
+                HHGOA.COM ↗
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN WORKSPACE (Responsive Mobile-First Order) -->
+    <div class="flex-1 flex flex-col lg:flex-row relative min-h-0 min-w-0">
+
+        <!-- LEFT SIDEBAR: CONTROLS & FORM (Order 2 on Mobile, Order 1 on Desktop) -->
+        <aside
+            class="order-2 lg:order-1 w-full lg:w-[380px] lg:h-full glass-panel flex flex-col shrink-0 z-20 overflow-y-visible lg:overflow-y-auto">
+
+            <div class="p-4 space-y-4">
+
+                <!-- Header Intro -->
+                <div>
+                    <h2 class="text-[11px] font-mono uppercase tracking-widest text-brandPink font-bold mb-0.5">Media
+                        Kit Generator</h2>
+                    <p class="text-xs text-gray-300 leading-tight">
+                        Create your official Hacker House Goa 2026 PFP overlay or VIP Pass.
+                    </p>
+                </div>
+
+                <!-- Format Switcher Tabs -->
+                <div class="grid grid-cols-2 p-1 bg-[#020D08] rounded-xl border border-emeraldLight/40">
+                    <button id="tabFormatA" onclick="setFormat('A')"
+                        class="py-2 px-3 rounded-lg text-xs font-bold transition-all flex flex-col items-center gap-0.5 bg-brandYellow text-black shadow-md">
+                        <span class="font-sansHeader tracking-wide text-xs">FORMAT A</span>
+                        <span class="text-[10px] opacity-80 font-normal">PFP Frame Overlay</span>
+                    </button>
+                    <button id="tabFormatB" onclick="setFormat('B')"
+                        class="py-2 px-3 rounded-lg text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-gray-400 hover:text-white">
+                        <span class="font-sansHeader tracking-wide text-xs">FORMAT B</span>
+                        <span class="text-[10px] opacity-80 font-normal">VIP Builder Pass</span>
+                    </button>
+                </div>
+
+                <!-- 1. PHOTO UPLOAD & SELFIE SECTION -->
+                <div class="space-y-1.5">
+                    <label
+                        class="text-xs font-bold text-brandYellow uppercase tracking-wider block flex justify-between items-center">
+                        <span>1. Add Photo / Selfie</span>
+                        <span class="text-[10px] font-normal text-gray-400 font-mono">JPG, PNG, HEIC</span>
+                    </label>
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="file" id="imageInput" accept="image/*,.heic" class="hidden"
+                            onchange="handleImageUpload(event)">
+                        <label for="imageInput" id="dropZone"
+                            class="flex flex-col items-center justify-center w-full h-20 border-2 border-dashed border-emeraldLight/60 hover:border-brandYellow bg-[#031A10]/60 hover:bg-[#052819] rounded-xl cursor-pointer transition-all p-1.5 text-center group">
+                            <div class="flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-brandPink group-hover:scale-110 transition-transform" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                                <span class="text-xs font-bold text-white group-hover:text-brandYellow transition-colors"
+                                    id="uploadStatusText">Upload Photo</span>
+                            </div>
+                            <span class="text-[9px] text-gray-400 mt-0.5" id="uploadSubtext">JPG, PNG, HEIC</span>
+                        </label>
+
+                        <button onclick="openCameraModal()" type="button"
+                            class="flex flex-col items-center justify-center w-full h-20 border-2 border-emeraldLight/60 hover:border-brandPink bg-[#062619]/60 hover:bg-[#093a26] rounded-xl transition-all p-1.5 text-center group">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-base group-hover:scale-110 transition-transform">📸</span>
+                                <span class="text-xs font-bold text-white group-hover:text-brandPink transition-colors">Take Selfie</span>
+                            </div>
+                            <span class="text-[9px] text-gray-400 mt-0.5">Use WebCam</span>
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <!-- 2. PHOTO ADJUSTMENTS & FILTERS -->
+                <div class="bg-[#03150C] p-3 rounded-xl border border-emeraldLight/30 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-brandYellow uppercase tracking-wider">Photo Controls</span>
+                        <button onclick="resetPhotoTransform()"
+                            class="text-[10px] text-gray-400 hover:text-brandPink underline font-mono">Reset</button>
+                    </div>
+
+                    <!-- Sliders -->
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <div>
+                            <div class="flex justify-between text-[10px] text-gray-300 mb-0.5">
+                                <span>Zoom</span>
+                                <span id="valZoom" class="font-mono text-brandYellow">1.0x</span>
+                            </div>
+                            <input type="range" id="zoom" min="0.2" max="3.0" step="0.02" value="1.0"
+                                oninput="updateControls(); renderCanvas();" class="w-full">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-gray-300 mb-0.5">
+                                <span>Rotate</span>
+                                <span id="valRotate" class="font-mono text-brandYellow">0°</span>
+                            </div>
+                            <input type="range" id="rotation" min="-180" max="180" step="1" value="0"
+                                oninput="updateControls(); renderCanvas();" class="w-full">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-gray-300 mb-0.5">
+                                <span>Position X</span>
+                                <span id="valOffsetX" class="font-mono text-brandYellow">0</span>
+                            </div>
+                            <input type="range" id="offsetX" min="-400" max="400" step="2" value="0"
+                                oninput="updateControls(); renderCanvas();" class="w-full">
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] text-gray-300 mb-0.5">
+                                <span>Position Y</span>
+                                <span id="valOffsetY" class="font-mono text-brandYellow">0</span>
+                            </div>
+                            <input type="range" id="offsetY" min="-400" max="400" step="2" value="0"
+                                oninput="updateControls(); renderCanvas();" class="w-full">
+                        </div>
+                    </div>
+
+                    <!-- Photo Shape Options (Format A) -->
+                    <div id="shapeSection" class="space-y-1">
+                        <span class="text-[10px] text-gray-400 font-medium block">Avatar Mask Geometry:</span>
+                        <div class="grid grid-cols-4 gap-1">
+                            <button onclick="setShape('quad')" id="shapeQuad"
+                                class="py-1 text-[10px] font-bold rounded bg-emeraldLight text-white border border-brandYellow">Quad</button>
+                            <button onclick="setShape('squircle')" id="shapeSquircle"
+                                class="py-1 text-[10px] font-bold rounded bg-[#062619] text-gray-400 hover:text-white border border-transparent">Squircle</button>
+                            <button onclick="setShape('circle')" id="shapeCircle"
+                                class="py-1 text-[10px] font-bold rounded bg-[#062619] text-gray-400 hover:text-white border border-transparent">Circle</button>
+                            <button onclick="setShape('arch')" id="shapeArch"
+                                class="py-1 text-[10px] font-bold rounded bg-[#062619] text-gray-400 hover:text-white border border-transparent">Arch</button>
+                        </div>
+                    </div>
+
+                    <!-- Photo Color Filter Presets -->
+                    <div class="space-y-1">
+                        <span class="text-[10px] text-gray-400 font-medium block">Color Grading Filter:</span>
+                        <div class="grid grid-cols-4 gap-1 text-[10px] font-bold">
+                            <button onclick="setFilter('none')" id="filterNone"
+                                class="py-1 rounded bg-brandPink text-white border border-white/20">Normal</button>
+                            <button onclick="setFilter('warm')" id="filterWarm"
+                                class="py-1 rounded bg-[#062619] text-gray-300 hover:text-white border border-transparent">Goa
+                                Sun</button>
+                            <button onclick="setFilter('emerald')" id="filterEmerald"
+                                class="py-1 rounded bg-[#062619] text-gray-300 hover:text-white border border-transparent">Cyber</button>
+                            <button onclick="setFilter('bw')" id="filterBW"
+                                class="py-1 rounded bg-[#062619] text-gray-300 hover:text-white border border-transparent">B
+                                & W</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. BUILDER DATA FIELDS (Format B ID Card) -->
+                <div id="builderForm" class="space-y-3 hidden border-t border-emeraldLight/30 pt-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-brandPink uppercase tracking-wider">2. Builder
+                            Details</span>
+                        <span class="text-[10px] font-mono text-gray-400">Pass Details</span>
+                    </div>
+
+                    <div>
+                        <label class="text-[10px] text-gray-300 font-semibold block mb-0.5">Builder Name</label>
+                        <input type="text" id="inpName" value="ADITYA SHARMA" oninput="renderCanvas()"
+                            class="w-full bg-[#020B07] border border-emeraldLight/60 focus:border-brandYellow rounded-lg px-2.5 py-1.5 text-xs font-bold text-white uppercase outline-none transition-colors">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="text-[10px] text-gray-300 font-semibold block mb-0.5">Primary Role</label>
+                            <input type="text" id="inpRole" value="FULLSTACK DEVELOPER" oninput="renderCanvas()"
+                                class="w-full bg-[#020B07] border border-emeraldLight/60 focus:border-brandYellow rounded-lg px-2.5 py-1.5 text-xs font-bold text-white uppercase outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="text-[10px] text-gray-300 font-semibold block mb-0.5">Location / Squad</label>
+                            <input type="text" id="inpLocation" value="GOA, IN" oninput="renderCanvas()"
+                                class="w-full bg-[#020B07] border border-emeraldLight/60 focus:border-brandYellow rounded-lg px-2.5 py-1.5 text-xs font-bold text-white uppercase outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Fun Builder Title Banner with Randomizer -->
+                    <div>
+                        <div class="flex justify-between items-center mb-0.5">
+                            <label class="text-[10px] text-brandPink font-bold uppercase">Builder Title Banner</label>
+                            <button onclick="randomizeTitle()"
+                                class="text-[9px] bg-brandPink/20 text-brandPink hover:bg-brandPink hover:text-white px-2 py-0.5 rounded font-mono font-bold transition-colors">
+                                🎲 Randomize
+                            </button>
+                        </div>
+                        <input type="text" id="inpTagline" value="10X BOILERPLATE DESTROYER" oninput="renderCanvas()"
+                            class="w-full bg-[#020B07] border border-brandPink rounded-lg px-2.5 py-1.5 text-xs font-bold text-brandYellow uppercase outline-none transition-colors">
+                    </div>
+
+                    <!-- Tech Stack Pills Field -->
+                    <div>
+                        <label class="text-[10px] text-brandCyan font-bold uppercase block mb-0.5">Tech Stack (Comma
+                            Separated)</label>
+                        <input type="text" id="inpStack" value="REACT, SOLANA, AI/LLM, RUST" oninput="renderCanvas()"
+                            class="w-full bg-[#020B07] border border-brandCyan/60 focus:border-brandCyan rounded-lg px-2.5 py-1.5 text-xs font-mono text-brandCyan uppercase outline-none transition-colors">
+                    </div>
+
+                    <!-- Pass Status -->
+                    <div>
+                        <label class="text-[10px] text-gray-300 font-semibold block mb-0.5">Pass Status Badge</label>
+                        <select id="inpStatus" onchange="renderCanvas()"
+                            class="w-full bg-[#020B07] border border-emeraldLight/60 text-white rounded-lg px-2.5 py-1.5 text-xs font-bold outline-none uppercase focus:border-brandYellow">
+                            <option value="STAGE 1: OPEN TRIALS">STAGE 1: OPEN TRIALS</option>
+                            <option value="CONFIRMED BUILDER 2026" selected>CONFIRMED BUILDER 2026</option>
+                            <option value="PARTNER TRIAL BUILDER">PARTNER TRIAL BUILDER</option>
+                            <option value="247 VIP RESIDENT">247 VIP RESIDENT</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 4. ACTIONS & EXPORT -->
+                <div class="pt-1 space-y-2">
+                    <button onclick="downloadOutput()"
+                        class="w-full bg-brandYellow hover:bg-yellow-300 text-black font-bold text-xs py-2.5 px-3 rounded-lg transition-all uppercase tracking-wide shadow-md active:scale-95 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Download Graphic
+                    </button>
+
+                    <button onclick="openShareModal()"
+                        class="w-full bg-[#1DA1F2]/10 hover:bg-[#1DA1F2]/20 border border-[#1DA1F2]/50 text-[#1DA1F2] font-bold text-xs py-2 px-3 rounded-lg transition-all uppercase tracking-wide flex items-center justify-center gap-2 active:scale-95">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        Share on X (#FrameInGoa)
+                    </button>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- RIGHT MAIN AREA: CANVAS PREVIEW VIEWPORT (Order 1 on Mobile, Order 2 on Desktop) -->
+        <main
+            class="order-1 lg:order-2 flex-1 w-full min-h-[45vh] lg:h-full flex flex-col items-center justify-center relative p-3 lg:p-6 bg-[#020704] shrink-0 overflow-hidden">
+
+            <!-- Ambient Background Gradient -->
+            <div
+                class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-950/20 via-transparent to-black/80">
+            </div>
+
+            <!-- Top Indicator Bar -->
+            <div class="absolute top-4 right-4 flex items-center gap-3 z-20">
+                <div
+                    class="flex items-center gap-2 bg-[#04190F]/90 backdrop-filter blur-md px-3 py-1 rounded-full border border-emeraldLight/40 shadow-lg">
+                    <span class="w-2 h-2 rounded-full bg-brandYellow animate-ping"></span>
+                    <span class="text-xs font-mono text-gray-200" id="resLabel">2000 x 2000 (HD PFP)</span>
+                </div>
+            </div>
+
+            <!-- Scalable Canvas Container -->
+            <div class="relative max-w-full max-h-[52vh] lg:max-h-[76vh] flex items-center justify-center z-10 shadow-[0_20px_60px_rgba(0,0,0,0.9)] rounded-xl overflow-hidden cursor-move"
+                id="canvasWrapper">
+                <canvas id="stage" class="max-w-full max-h-[52vh] lg:max-h-[76vh] object-contain"></canvas>
+            </div>
+
+            <!-- Bottom Drag Hint -->
+            <div
+                class="mt-2.5 z-20 hidden md:flex items-center gap-2 bg-[#04190F]/90 px-3.5 py-1 rounded-full border border-emeraldLight/40 text-[11px] text-gray-300 font-mono shadow-md">
+                <svg class="w-3.5 h-3.5 text-brandPink animate-bounce" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 11.5V14m0 -2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0 -5.5a1.5 1.5 0 013 0v5.5m0 -1.5a1.5 1.5 0 013 0v3">
+                    </path>
+                </svg>
+                <span>Click & drag photo on canvas to reposition</span>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- SHARE TO X MODAL -->
+    <div id="shareModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div
+            class="bg-[#051A10] border border-emeraldLight/60 rounded-2xl p-5 max-w-md w-full space-y-4 shadow-2xl relative">
+            <button onclick="closeShareModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-lg">✕</button>
+
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#1DA1F2]/20 text-[#1DA1F2] flex items-center justify-center">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="font-sansHeader text-sm font-bold text-white">Share to X (#FrameInGoa)</h3>
+                    <p class="text-[11px] text-gray-400">Post your HH Goa 2026 graphic</p>
+                </div>
+            </div>
+
+            <div class="space-y-1">
+                <label class="text-xs font-semibold text-gray-300">Tweet Caption Preview:</label>
+                <textarea id="tweetCaption" rows="4" readonly
+                    class="w-full bg-[#020B07] border border-emeraldLight/40 rounded-xl p-2.5 text-xs text-gray-200 font-sans outline-none resize-none"></textarea>
+            </div>
+
+            <div
+                class="bg-brandPink/10 border border-brandPink/30 rounded-xl p-2.5 text-xs text-brandPink flex items-start gap-2">
+                <span class="text-sm">💡</span>
+                <span>Clicking <strong>Post to X</strong> opens Twitter with your caption ready. Make sure to attach
+                    your downloaded graphic!</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 pt-1">
+                <button onclick="copyTweetText()"
+                    class="py-2 bg-[#0A2E1F] hover:bg-[#0E3D2A] text-brandYellow text-xs font-bold rounded-xl border border-emeraldLight/50 transition-colors">
+                    📋 Copy Caption
+                </button>
+                <button onclick="executeTweetShare()"
+                    class="py-2 bg-[#1DA1F2] hover:bg-[#1A8CD8] text-white text-xs font-bold rounded-xl transition-colors shadow-lg">
+                    🚀 Launch Tweet on X
+                </button>
+            </div>
+            <div id="webShareContainer" class="pt-1 hidden">
+                <button onclick="executeWebShare()"
+                    class="w-full py-2 bg-gradient-to-r from-brandPink to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-xs font-bold rounded-xl transition-all shadow-lg flex items-center justify-center gap-2">
+                    📱 Native Mobile Share (App/Direct)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAKE SELFIE CAMERA MODAL -->
+    <div id="cameraModal"
+        class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div
+            class="bg-[#051A10] border border-brandPink/60 rounded-2xl p-5 max-w-md w-full space-y-4 shadow-2xl relative text-center">
+            <button onclick="closeCameraModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-white font-mono text-lg">✕</button>
+
+            <div class="flex items-center gap-2 justify-center">
+                <span class="text-xl">📸</span>
+                <h3 class="font-sansHeader text-base font-bold text-white">Snap Live Builder Selfie</h3>
+            </div>
+
+            <div class="relative rounded-xl overflow-hidden bg-black aspect-square max-w-[320px] mx-auto border border-emeraldLight/40">
+                <video id="cameraVideo" autoplay playsinline class="w-full h-full object-cover transform -scale-x-100"></video>
+                <canvas id="cameraCanvas" class="hidden"></canvas>
+            </div>
+
+            <div class="flex items-center justify-center gap-3">
+                <button onclick="closeCameraModal()"
+                    class="px-4 py-2 bg-[#0A2E1F] hover:bg-[#0E3D2A] text-gray-300 text-xs font-bold rounded-xl border border-emeraldLight/40 transition-colors">
+                    Cancel
+                </button>
+                <button onclick="captureSelfie()"
+                    class="px-6 py-2.5 bg-brandPink hover:bg-pink-600 text-white text-xs font-bold rounded-xl shadow-lg active:scale-95 transition-all flex items-center gap-2">
+                    <span>📸 Capture & Apply</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast"
+        class="fixed bottom-6 right-6 z-50 bg-[#063D27] border border-brandYellow text-white px-4 py-2.5 rounded-xl shadow-2xl flex items-center gap-2 text-xs font-bold transition-all transform translate-y-20 opacity-0 pointer-events-none">
+        <span id="toastIcon">✨</span>
+        <span id="toastMessage">Action completed!</span>
+    </div>
+
+    <!-- SCRIPT LOGIC -->
+    <script src="bgData.js"></script>
+    <script>
+        const canvas = document.getElementById('stage');
+        const ctx = canvas.getContext('2d');
+
+        let currentFormat = 'A'; // 'A' or 'B'
+        let currentShape = 'quad'; // 'quad', 'squircle', 'circle', 'arch'
+        let currentFilter = 'none'; // 'none', 'warm', 'emerald', 'bw'
+
+        // Default Sample Image Data URL (Safe from CORS canvas tainting)
+        const defaultSamplePhoto = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800"><defs><linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%23042115"/><stop offset="50%" stop-color="%2307442B"/><stop offset="100%" stop-color="%2302120B"/></linearGradient><linearGradient id="avatarGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="%23FFD1A4"/><stop offset="100%" stop-color="%23E0A370"/></linearGradient></defs><rect width="800" height="800" fill="url(%23bgGrad)"/><circle cx="400" cy="300" r="140" fill="url(%23avatarGrad)"/><path d="M180,700 C180,520 260,450 400,450 C540,450 620,520 620,700 Z" fill="%2300E5FF" opacity="0.85"/><circle cx="350" cy="290" r="14" fill="%23222"/><circle cx="450" cy="290" r="14" fill="%23222"/><path d="M360,350 Q400,385 440,350" stroke="%23B06040" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`;
+
+        let userImg = new Image();
+        userImg.onload = () => renderCanvas();
+        userImg.src = defaultSamplePhoto;
+
+        // Custom Background Image from workspace (Format A 1:1 Base64 Data URL)
+        let userBgImg = new Image();
+        userBgImg.onload = () => renderCanvas();
+        userBgImg.onerror = (err) => console.warn("Local BG load issue:", err);
+        userBgImg.src = (typeof bgDataUrlA !== 'undefined') ? bgDataUrlA : "1.png";
+
+        // Custom Background Image from workspace (Format B Vertical 4:5 Base64 Data URL)
+        let userBgImgB = new Image();
+        userBgImgB.onload = () => renderCanvas();
+        userBgImgB.onerror = (err) => console.warn("Local BG B load issue:", err);
+        userBgImgB.src = (typeof bgDataUrlB !== 'undefined') ? bgDataUrlB : "2.png";
+
+        function handleBgUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const statusLabel = document.getElementById('bgStatusLabel');
+            const nameLabel = document.getElementById('bgFileName');
+            if (nameLabel) nameLabel.innerText = file.name;
+            if (statusLabel) statusLabel.innerText = "Loading...";
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    userBgImg = img;
+                    if (statusLabel) {
+                        statusLabel.innerText = "Loaded ✓";
+                        statusLabel.className = "text-[9px] text-emerald-400 font-mono font-bold";
+                    }
+                    renderCanvas();
+                };
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Fun Title Generator Array
+        const funTitles = [
+            "10X BOILERPLATE DESTROYER",
+            "CUDA WHISPERER & CAFFEINE CONVERT",
+            "PROMPT WIZARD & RUST MAXIMALIST",
+            "BEACHSIDE CODE SLINGER",
+            "ZERO-KNOWLEDGE ALCHEMIST",
+            "SOLANA SPEED DEMON",
+            "SHIP FIRST ASK QUESTIONS LATER",
+            "FULLSTACK CHAOS ENGINEER",
+            "AGENTIC AI ARCHITECT",
+            "LLM ORCHESTRATOR & GOA BUILDER"
+        ];
+
+        // Canvas interactive dragging state
+        let isDragging = false;
+        let startX, startY;
+        let initialOffsetX = 0, initialOffsetY = 0;
+
+        // Initialize Web Fonts & Canvas Engine
+        document.fonts.ready.then(() => {
+            userImg.onload = () => renderCanvas();
+            renderCanvas();
+        });
+
+        // Setup Drag-to-Position on Canvas Preview
+        const canvasWrapper = document.getElementById('canvasWrapper');
+        canvasWrapper.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            initialOffsetX = parseFloat(document.getElementById('offsetX').value);
+            initialOffsetY = parseFloat(document.getElementById('offsetY').value);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            document.getElementById('offsetX').value = initialOffsetX + dx * 1.5;
+            document.getElementById('offsetY').value = initialOffsetY + dy * 1.5;
+            updateControls();
+            renderCanvas();
+        });
+
+        window.addEventListener('mouseup', () => isDragging = false);
+
+        // Touch support for drag
+        canvasWrapper.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                initialOffsetX = parseFloat(document.getElementById('offsetX').value);
+                initialOffsetY = parseFloat(document.getElementById('offsetY').value);
+            }
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging || e.touches.length !== 1) return;
+            const dx = e.touches[0].clientX - startX;
+            const dy = e.touches[0].clientY - startY;
+            document.getElementById('offsetX').value = initialOffsetX + dx * 1.5;
+            document.getElementById('offsetY').value = initialOffsetY + dy * 1.5;
+            updateControls();
+            renderCanvas();
+        });
+
+        window.addEventListener('touchend', () => isDragging = false);
+
+        // Format Switcher
+        function setFormat(fmt) {
+            currentFormat = fmt;
+            const tabA = document.getElementById('tabFormatA');
+            const tabB = document.getElementById('tabFormatB');
+            const builderForm = document.getElementById('builderForm');
+            const shapeSection = document.getElementById('shapeSection');
+
+            if (fmt === 'A') {
+                tabA.className = "py-2 px-3 rounded-lg text-xs font-bold transition-all flex flex-col items-center gap-0.5 bg-brandYellow text-black shadow-md";
+                tabB.className = "py-2 px-3 rounded-lg text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-gray-400 hover:text-white";
+                builderForm.classList.add('hidden');
+                shapeSection.classList.remove('hidden');
+            } else {
+                tabB.className = "py-2 px-3 rounded-lg text-xs font-bold transition-all flex flex-col items-center gap-0.5 bg-brandYellow text-black shadow-md";
+                tabA.className = "py-2 px-3 rounded-lg text-xs font-bold transition-all flex flex-col items-center gap-0.5 text-gray-400 hover:text-white";
+                builderForm.classList.remove('hidden');
+                shapeSection.classList.add('hidden');
+            }
+            renderCanvas();
+        }
+
+        // Shape Switcher (Format A)
+        function setShape(shape) {
+            currentShape = shape;
+            ['quad', 'squircle', 'circle', 'arch'].forEach(s => {
+                const btn = document.getElementById(`shape${s.charAt(0).toUpperCase() + s.slice(1)}`);
+                if (s === shape) {
+                    btn.className = "py-1 text-[10px] font-bold rounded bg-emeraldLight text-white border border-brandYellow";
+                } else {
+                    btn.className = "py-1 text-[10px] font-bold rounded bg-[#062619] text-gray-400 hover:text-white border border-transparent";
+                }
+            });
+            renderCanvas();
+        }
+
+        // Filter Switcher
+        function setFilter(flt) {
+            currentFilter = flt;
+            ['None', 'Warm', 'Emerald', 'BW'].forEach(f => {
+                const btn = document.getElementById(`filter${f}`);
+                if (f.toLowerCase() === flt) {
+                    btn.className = "py-1 rounded bg-brandPink text-white border border-white/20";
+                } else {
+                    btn.className = "py-1 rounded bg-[#062619] text-gray-300 hover:text-white border border-transparent";
+                }
+            });
+            renderCanvas();
+        }
+
+        function updateControls() {
+            document.getElementById('valZoom').innerText = parseFloat(document.getElementById('zoom').value).toFixed(2) + 'x';
+            document.getElementById('valRotate').innerText = document.getElementById('rotation').value + '°';
+            document.getElementById('valOffsetX').innerText = document.getElementById('offsetX').value;
+            document.getElementById('valOffsetY').innerText = document.getElementById('offsetY').value;
+        }
+
+        function resetPhotoTransform() {
+            document.getElementById('zoom').value = 1.0;
+            document.getElementById('rotation').value = 0;
+            document.getElementById('offsetX').value = 0;
+            document.getElementById('offsetY').value = 0;
+            updateControls();
+            renderCanvas();
+        }
+
+        function randomizeTitle() {
+            const randomIndex = Math.floor(Math.random() * funTitles.length);
+            document.getElementById('inpTagline').value = funTitles[randomIndex];
+            renderCanvas();
+        }
+
+        // Handle File Upload (JPG, PNG, HEIC)
+        async function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const statusText = document.getElementById('uploadStatusText');
+            statusText.innerText = "Processing Photo...";
+
+            let blob = file;
+            if (file.name.toLowerCase().endsWith('.heic')) {
+                try {
+                    const converted = await heic2any({ blob: file, toType: 'image/jpeg' });
+                    blob = Array.isArray(converted) ? converted[0] : converted;
+                } catch (err) {
+                    alert('Could not convert HEIC photo. Please try standard JPG/PNG.');
+                    statusText.innerText = "Upload Failed";
+                    return;
+                }
+            }
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    userImg = img;
+                    statusText.innerText = "Photo Ready!";
+                    statusText.classList.add('text-brandYellow');
+                    resetPhotoTransform();
+                }
+                img.src = ev.target.result;
+            };
+            reader.readAsDataURL(blob);
+        }
+
+        // Drag and drop setup for photo upload
+        const dropZone = document.getElementById('dropZone');
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('border-brandYellow'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('border-brandYellow'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-brandYellow');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                handleImageUpload({ target: { files: e.dataTransfer.files } });
+            }
+        });
+
+        // Main Render Canvas Dispatcher
+        function renderCanvas() {
+            if (currentFormat === 'A') {
+                canvas.width = 2000;
+                canvas.height = 2000;
+                document.getElementById('resLabel').innerText = "2000 x 2000 (HD PFP)";
+                drawFormatA();
+            } else {
+                canvas.width = 1600;
+                canvas.height = 2000;
+                document.getElementById('resLabel').innerText = "1600 x 2000 (VIP Pass)";
+                drawFormatB();
+            }
+        }
+
+        // Helper: Draw Color Filter on Image
+        function applyImageFilters() {
+            if (currentFilter === 'warm') {
+                ctx.filter = 'sepia(0.35) contrast(1.1) saturate(1.3) brightness(1.05)';
+            } else if (currentFilter === 'emerald') {
+                ctx.filter = 'hue-rotate(90deg) contrast(1.25) saturate(1.4)';
+            } else if (currentFilter === 'bw') {
+                ctx.filter = 'grayscale(1) contrast(1.3)';
+            } else {
+                ctx.filter = 'none';
+            }
+        }
+
+        // Helper Path Functions
+        function drawRoundedRect(x, y, w, h, r) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+        }
+
+        function drawArchPath(x, y, w, h) {
+            ctx.beginPath();
+            ctx.moveTo(x, y + h);
+            ctx.lineTo(x, y + w / 2);
+            ctx.arc(x + w / 2, y + w / 2, w / 2, Math.PI, 0, false);
+            ctx.lineTo(x + w, y + h);
+            ctx.closePath();
+        }
+
+        function drawQuadPath(x, y, w, h, pad = 0) {
+            const x0 = x - pad;
+            const y0 = y - pad;
+            const w0 = w + pad * 2;
+            const h0 = h + pad * 2;
+
+            // Corners with slight tilt & flare matching reference design
+            const pTL = { x: x0 + w0 * 0.04, y: y0 + h0 * 0.02 };
+            const pTR = { x: x0 + w0 * 0.98, y: y0 + h0 * 0.01 };
+            const pBR = { x: x0 + w0 * 0.96, y: y0 + h0 * 0.98 };
+            const pBL = { x: x0 + w0 * 0.02, y: y0 + h0 * 0.97 };
+
+            // Control points for outward bowing (pincushion / CRT screen curvature)
+            const cTop = { x: x0 + w0 * 0.51, y: y0 - h0 * 0.04 };
+            const cRight = { x: x0 + w0 * 1.04, y: y0 + h0 * 0.5 };
+            const cBottom = { x: x0 + w0 * 0.49, y: y0 + h0 * 1.04 };
+            const cLeft = { x: x0 - w0 * 0.04, y: y0 + h0 * 0.5 };
+
+            ctx.beginPath();
+            ctx.moveTo(pTL.x, pTL.y);
+            ctx.quadraticCurveTo(cTop.x, cTop.y, pTR.x, pTR.y);
+            ctx.quadraticCurveTo(cRight.x, cRight.y, pBR.x, pBR.y);
+            ctx.quadraticCurveTo(cBottom.x, cBottom.y, pBL.x, pBL.y);
+            ctx.quadraticCurveTo(cLeft.x, cLeft.y, pTL.x, pTL.y);
+            ctx.closePath();
+        }
+
+        // Detailed Procedural Goa Coconut Palm Tree
+        function drawGoaPalmTree(baseX, baseY, trunkHeight, curveX, isRightSide) {
+            ctx.save();
+
+            // Curved Palm Trunk
+            const topX = baseX + (isRightSide ? -curveX : curveX);
+            const topY = baseY - trunkHeight;
+
+            const trunkGrad = ctx.createLinearGradient(baseX, baseY, topX, topY);
+            trunkGrad.addColorStop(0, '#052416');
+            trunkGrad.addColorStop(0.5, '#0B4E30');
+            trunkGrad.addColorStop(1, '#073923');
+
+            ctx.beginPath();
+            ctx.moveTo(baseX - 22, baseY);
+            ctx.quadraticCurveTo(baseX + (isRightSide ? -curveX * 0.4 : curveX * 0.4), baseY - trunkHeight * 0.5, topX - 10, topY);
+            ctx.lineTo(topX + 10, topY);
+            ctx.quadraticCurveTo(baseX + (isRightSide ? -curveX * 0.4 : curveX * 0.4) + 25, baseY - trunkHeight * 0.5, baseX + 22, baseY);
+            ctx.closePath();
+            ctx.fillStyle = trunkGrad;
+            ctx.fill();
+
+            // Trunk Texture Rings
+            ctx.strokeStyle = 'rgba(255, 222, 0, 0.2)';
+            ctx.lineWidth = 4;
+            for (let i = 1; i < 14; i++) {
+                const t = i / 14;
+                const tx = baseX + (isRightSide ? -curveX : curveX) * Math.pow(t, 1.2);
+                const ty = baseY - trunkHeight * t;
+                ctx.beginPath();
+                ctx.arc(tx, ty, 18 - t * 8, 0, Math.PI);
+                ctx.stroke();
+            }
+
+            // Hanging Coconuts
+            ctx.fillStyle = '#052416';
+            ctx.beginPath(); ctx.arc(topX - 14, topY + 18, 16, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath(); ctx.arc(topX + 12, topY + 20, 15, 0, Math.PI * 2); ctx.fill();
+            ctx.beginPath(); ctx.arc(topX, topY + 28, 16, 0, Math.PI * 2); ctx.fill();
+
+            // Palm Fronds Canopy
+            const frondAngles = [
+                -0.95, -0.65, -0.35, -0.1, 0.15, 0.45, 0.7, 0.95,
+                -1.15, -0.8, -0.5, -0.2, 0.1, 0.4, 0.75, 1.05
+            ];
+
+            frondAngles.forEach((ang, idx) => {
+                const flip = isRightSide ? -1 : 1;
+                const finalAng = ang * flip + (isRightSide ? Math.PI : 0);
+                const leafScale = 1.65 + (idx % 4) * 0.25;
+                const opacity = 0.6 + (idx % 3) * 0.2;
+                const leafColor = (idx % 2 === 0) ? '#10B981' : '#065F46';
+
+                ctx.save();
+                ctx.translate(topX, topY);
+                ctx.rotate(finalAng);
+                ctx.scale(leafScale, leafScale);
+                ctx.globalAlpha = opacity;
+                ctx.fillStyle = leafColor;
+                ctx.strokeStyle = leafColor;
+
+                // Frond Stem
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.quadraticCurveTo(150, -60, 360, -90);
+                ctx.lineWidth = 8;
+                ctx.stroke();
+
+                // Leaflets
+                const leaflets = 26;
+                for (let k = 2; k < leaflets; k++) {
+                    const lt = k / leaflets;
+                    const lx = lt * 340;
+                    const ly = -Math.pow(lt, 1.2) * 80;
+                    const llen = (1 - Math.abs(lt - 0.4)) * 140 + 30;
+
+                    // Top Leaflet
+                    ctx.beginPath();
+                    ctx.moveTo(lx, ly);
+                    ctx.quadraticCurveTo(lx + 25, ly - llen * 0.5, lx + 50, ly - llen);
+                    ctx.quadraticCurveTo(lx + 15, ly - llen * 0.4, lx, ly);
+                    ctx.fill();
+
+                    // Bottom Leaflet
+                    ctx.beginPath();
+                    ctx.moveTo(lx, ly);
+                    ctx.quadraticCurveTo(lx + 30, ly + llen * 0.5, lx + 60, ly + llen * 0.7);
+                    ctx.quadraticCurveTo(lx + 15, ly + llen * 0.3, lx, ly);
+                    ctx.fill();
+                }
+                ctx.restore();
+            });
+
+            ctx.restore();
+        }
+
+        // Draw Complete Goa Beach Background
+        function drawGoaTropicalBackground(w, h) {
+            const activeImg = (currentFormat === 'B' && userBgImgB.complete && userBgImgB.naturalWidth > 0)
+                ? userBgImgB
+                : userBgImg;
+
+            if (activeImg.complete && activeImg.naturalWidth > 0) {
+                // Calculate cover aspect ratio dimensions for canvas
+                const imgRatio = activeImg.naturalWidth / activeImg.naturalHeight;
+                const canvasRatio = w / h;
+                let renderW, renderH, offsetX, offsetY;
+
+                if (imgRatio > canvasRatio) {
+                    renderH = h;
+                    renderW = h * imgRatio;
+                    offsetX = (w - renderW) / 2;
+                    offsetY = 0;
+                } else {
+                    renderW = w;
+                    renderH = w / imgRatio;
+                    offsetX = 0;
+                    offsetY = (h - renderH) / 2;
+                }
+                ctx.drawImage(activeImg, offsetX, offsetY, renderW, renderH);
+                return;
+            }
+
+            // Rich Emerald Beach Gradient Fallback (No Palm Trees)
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+            bgGrad.addColorStop(0, '#042115');
+            bgGrad.addColorStop(0.35, '#07442B');
+            bgGrad.addColorStop(0.7, '#052D1C');
+            bgGrad.addColorStop(1, '#02120B');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, w, h);
+        }
+
+        // =========================================================================
+        // FORMAT A: PFP OVERLAY GRAPHIC (PDF 1 Editorial Identity + Tropical BG)
+        // =========================================================================
+        function drawFormatA() {
+            const w = canvas.width;
+            const h = canvas.height;
+
+            // 1. Tropical Goa Background (Image or Procedural Palms)
+            drawGoaTropicalBackground(w, h);
+
+            // If user background image is drawn, add subtle vignette for contrast
+            if (userBgImg.complete && userBgImg.naturalWidth) {
+                const darkOverlay = ctx.createLinearGradient(0, 0, 0, h);
+                darkOverlay.addColorStop(0, 'rgba(3, 21, 12, 0.45)');
+                darkOverlay.addColorStop(0.5, 'rgba(0, 0, 0, 0.2)');
+                darkOverlay.addColorStop(1, 'rgba(3, 21, 12, 0.6)');
+                ctx.fillStyle = darkOverlay;
+                ctx.fillRect(0, 0, w, h);
+            }
+
+            // 2. User Avatar Photo Frame
+            const frameSize = 1220;
+            const frameX = (w - frameSize) / 2;
+            const frameY = (h - frameSize) / 2 + 50; // Positioned cleanly below header
+
+            const zoom = parseFloat(document.getElementById('zoom').value);
+            const rot = parseFloat(document.getElementById('rotation').value) * Math.PI / 180;
+            const offsetX = parseFloat(document.getElementById('offsetX').value);
+            const offsetY = parseFloat(document.getElementById('offsetY').value);
+
+            ctx.save();
+
+            // Avatar Outer Glow & Shadow
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+            ctx.shadowBlur = 60;
+            ctx.shadowOffsetY = 30;
+
+            // Base Photo Border Container
+            ctx.fillStyle = '#F7F4EA';
+            if (currentShape === 'circle') {
+                ctx.beginPath();
+                ctx.arc(w / 2, frameY + frameSize / 2, frameSize / 2 + 24, 0, Math.PI * 2);
+                ctx.fill();
+            } else if (currentShape === 'arch') {
+                drawArchPath(frameX - 24, frameY - 24, frameSize + 48, frameSize + 48);
+                ctx.fill();
+            } else if (currentShape === 'quad' || currentShape === 'parallelogram') {
+                drawQuadPath(frameX, frameY, frameSize, frameSize, 24);
+                ctx.fill();
+            } else { // Squircle
+                drawRoundedRect(frameX - 24, frameY - 24, frameSize + 48, frameSize + 48, 120);
+                ctx.fill();
+            }
+
+            ctx.shadowColor = 'transparent';
+
+            // Clip Area for User Photo
+            ctx.beginPath();
+            if (currentShape === 'circle') {
+                ctx.arc(w / 2, frameY + frameSize / 2, frameSize / 2, 0, Math.PI * 2);
+            } else if (currentShape === 'arch') {
+                drawArchPath(frameX, frameY, frameSize, frameSize);
+            } else if (currentShape === 'quad' || currentShape === 'parallelogram') {
+                drawQuadPath(frameX, frameY, frameSize, frameSize, 0);
+            } else { // Squircle
+                drawRoundedRect(frameX, frameY, frameSize, frameSize, 100);
+            }
+            ctx.clip();
+
+            // Render User Photo Inside Mask
+            if (userImg.complete && userImg.naturalWidth) {
+                ctx.save();
+                ctx.translate(w / 2 + offsetX, frameY + frameSize / 2 + offsetY);
+                ctx.rotate(rot);
+
+                applyImageFilters();
+
+                const aspect = userImg.width / userImg.height;
+                let drawW, drawH;
+                if (aspect > 1) {
+                    drawH = frameSize * zoom;
+                    drawW = drawH * aspect;
+                } else {
+                    drawW = frameSize * zoom;
+                    drawH = drawW / aspect;
+                }
+                ctx.drawImage(userImg, -drawW / 2, -drawH / 2, drawW, drawH);
+                ctx.restore();
+            }
+
+            ctx.restore(); // Restore from clipping mask
+
+            // Gold / Cyan Outer Accent Stroke
+            ctx.save();
+            ctx.lineWidth = 12;
+            ctx.strokeStyle = '#FFDE00';
+            if (currentShape === 'circle') {
+                ctx.beginPath(); ctx.arc(w / 2, frameY + frameSize / 2, frameSize / 2, 0, Math.PI * 2); ctx.stroke();
+            } else if (currentShape === 'quad' || currentShape === 'parallelogram') {
+                ctx.strokeStyle = '#00E5FF';
+                ctx.lineWidth = 14;
+                drawQuadPath(frameX, frameY, frameSize, frameSize, 0); ctx.stroke();
+            } else if (currentShape === 'squircle') {
+                drawRoundedRect(frameX, frameY, frameSize, frameSize, 100); ctx.stroke();
+            }
+            ctx.restore();
+
+            // 3. TOP BRANDING HEADER (PDF 1 Cover Editorial Styling)
+
+            // Top Stamps (44px Mono)
+            ctx.fillStyle = '#F7F4EA';
+            ctx.font = '700 44px "Space Mono"';
+            ctx.textAlign = 'left';
+            ctx.fillText('2:47 PM STUDIO', 80, 110);
+
+            ctx.textAlign = 'right';
+            ctx.fillText('HHGOA.COM', w - 80, 110);
+
+            // Headline "HACKER HOUSE"
+            ctx.save();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+            ctx.shadowBlur = 35;
+            ctx.shadowOffsetY = 15;
+
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '900 155px "Playfair Display"';
+            ctx.textAlign = 'center';
+            ctx.fillText('HACKER HOUSE', w / 2, 235);
+            ctx.restore();
+
+            // Hot Pink Devanagari "गोवा" Badge (Positioned directly BELOW Hacker House)
+            ctx.save();
+            const badgeW = 210;
+            const badgeH = 80;
+            const badgeX = w / 2 - badgeW / 2;
+            const badgeY = 270;
+
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+            ctx.shadowBlur = 20;
+            ctx.shadowOffsetY = 8;
+
+            ctx.fillStyle = '#FF007F';
+            drawRoundedRect(badgeX, badgeY, badgeW, badgeH, 20);
+            ctx.fill();
+
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#FFDE00';
+            ctx.stroke();
+
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '900 60px "Rozha One"';
+            ctx.textAlign = 'center';
+            ctx.fillText('गोवा', w / 2, badgeY + 60);
+            ctx.restore();
+
+            // 4. HASHTAG BADGE (#FrameInGoa - Bigger & Positioned Below Photo)
+            ctx.save();
+            const tagText = "#FrameInGoa";
+            ctx.font = '800 48px "Syne"';
+            const textMetrics = ctx.measureText(tagText);
+            const boxPaddingX = 45;
+            const boxW = textMetrics.width + boxPaddingX * 2;
+            const boxH = 86;
+
+            const tagCenterY = 1725;
+
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+            ctx.shadowBlur = 24;
+            ctx.shadowOffsetY = 10;
+
+            ctx.fillStyle = '#FF007F';
+            drawRoundedRect(w / 2 - boxW / 2, tagCenterY - boxH / 2, boxW, boxH, 22);
+            ctx.fill();
+
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = '#FFFFFF';
+            ctx.stroke();
+
+            ctx.shadowBlur = 0;
+            ctx.fillStyle = '#FFFFFF';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(tagText, w / 2, tagCenterY + 2);
+            ctx.restore();
+
+            // 5. BOTTOM FOOTER INFO & CORNER STAMPS
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '800 36px "Syne"';
+            ctx.textAlign = 'center';
+            ctx.fillText('BUILD  •  SHIP  •  LAUNCH', w / 2, 1835);
+
+            ctx.fillStyle = '#F7F4EA';
+            ctx.font = '700 44px "Space Mono"';
+            ctx.textAlign = 'left';
+            ctx.fillText('GOA, INDIA  •  28–31 OCT 2026', 80, h - 65);
+
+            ctx.textAlign = 'right';
+            ctx.fillText('EDITION 2026', w - 80, h - 65);
+        }
+
+        // =========================================================================
+        // FORMAT B: VIP BUILDER ID CARD (Portrait Event Pass with Goa Palms)
+        // =========================================================================
+        function drawFormatB() {
+            const w = canvas.width;  // 1600
+            const h = canvas.height; // 2000
+
+            // 1. Draw Background (Using vertical PNG Gemini_Generated_Image_f5uq98f5uq98f5uq.png)
+            drawGoaTropicalBackground(w, h);
+
+            // 2. Lanyard Hole Slot Graphic
+            ctx.fillStyle = '#020704';
+            drawRoundedRect(w / 2 - 100, 40, 200, 35, 18);
+            ctx.fill();
+            ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.stroke();
+
+            // 3. Card Outer Boundary & Base Fill
+            const cardX = 80;
+            const cardY = 120;
+            const cardW = w - 160;
+            const cardH = h - 200;
+
+            // 3. Card Outer Boundary Frame & Shadow
+            ctx.save();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.85)';
+            ctx.shadowBlur = 50;
+            ctx.shadowOffsetY = 25;
+
+            drawRoundedRect(cardX, cardY, cardW, cardH, 50);
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = '#FFDE00';
+            ctx.stroke();
+            ctx.restore();
+
+            // 3b. AUTHENTIC GOAN TROPICAL BEACH & SUNSET VIBE GRAPHICS
+            ctx.save();
+            drawRoundedRect(cardX, cardY, cardW, cardH, 50);
+            ctx.clip();
+
+            // A. Goa Sunset Twilight Gradient Base
+            const atmosphere = ctx.createLinearGradient(cardX, cardY, cardX, cardY + cardH);
+            atmosphere.addColorStop(0, 'rgba(4, 22, 15, 0.96)');
+            atmosphere.addColorStop(0.35, 'rgba(8, 38, 28, 0.93)');
+            atmosphere.addColorStop(0.7, 'rgba(12, 44, 42, 0.94)');
+            atmosphere.addColorStop(1, 'rgba(2, 14, 10, 0.96)');
+            ctx.fillStyle = atmosphere;
+            ctx.fillRect(cardX, cardY, cardW, cardH);
+
+            // B. Sunset Golden Sun Disk & Ocean Radial Aura behind Photo
+            const sunGlow = ctx.createRadialGradient(cardX + cardW / 2, cardY + 580, 40, cardX + cardW / 2, cardY + 580, 600);
+            sunGlow.addColorStop(0, 'rgba(255, 222, 0, 0.18)');
+            sunGlow.addColorStop(0.35, 'rgba(255, 0, 127, 0.10)');
+            sunGlow.addColorStop(0.7, 'rgba(0, 229, 255, 0.05)');
+            sunGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = sunGlow;
+            ctx.fillRect(cardX, cardY, cardW, cardH);
+
+            // C. Portuguese-Goan Azulejo Scalloped Arch Lattice Watermark
+            ctx.save();
+            ctx.strokeStyle = 'rgba(255, 222, 0, 0.06)';
+            ctx.lineWidth = 2;
+            const archR = 60;
+            for (let ay = cardY + 40; ay < cardY + cardH - 100; ay += 70) {
+                for (let ax = cardX - 20; ax < cardX + cardW + 40; ax += 120) {
+                    ctx.beginPath();
+                    ctx.arc(ax + archR, ay, archR, Math.PI, 0, false);
+                    ctx.stroke();
+                }
+            }
+            ctx.restore();
+
+            // D. Goa Beach Ocean Wave Silhouettes (Bottom Card Base)
+            ctx.save();
+            ctx.fillStyle = 'rgba(0, 229, 255, 0.04)';
+            ctx.beginPath();
+            ctx.moveTo(cardX, cardY + cardH - 220);
+            ctx.bezierCurveTo(cardX + cardW * 0.25, cardY + cardH - 260, cardX + cardW * 0.5, cardY + cardH - 180, cardX + cardW, cardY + cardH - 230);
+            ctx.lineTo(cardX + cardW, cardY + cardH);
+            ctx.lineTo(cardX, cardY + cardH);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = 'rgba(255, 222, 0, 0.03)';
+            ctx.beginPath();
+            ctx.moveTo(cardX, cardY + cardH - 170);
+            ctx.bezierCurveTo(cardX + cardW * 0.35, cardY + cardH - 130, cardX + cardW * 0.7, cardY + cardH - 210, cardX + cardW, cardY + cardH - 150);
+            ctx.lineTo(cardX + cardW, cardY + cardH);
+            ctx.lineTo(cardX, cardY + cardH);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+
+            // E. Goa Tropical Palm Trees & Frond Silhouettes (Left & Right Margins)
+            ctx.save();
+            // Left Palm Trunk
+            ctx.strokeStyle = 'rgba(255, 222, 0, 0.14)';
+            ctx.lineWidth = 14;
+            ctx.beginPath();
+            ctx.moveTo(cardX + 15, cardY + cardH);
+            ctx.quadraticCurveTo(cardX + 160, cardY + cardH - 450, cardX + 90, cardY + 450);
+            ctx.stroke();
+
+            // Left Palm Fronds
+            ctx.fillStyle = 'rgba(255, 222, 0, 0.12)';
+            const lX = cardX + 90, lY = cardY + 450;
+            const anglesL = [-0.8, -0.3, 0.2, 0.7, 1.2, 1.8];
+            anglesL.forEach(ang => {
+                ctx.beginPath();
+                ctx.moveTo(lX, lY);
+                const ex = lX + Math.cos(ang) * 180;
+                const ey = lY + Math.sin(ang) * 180;
+                ctx.quadraticCurveTo(lX + Math.cos(ang - 0.2) * 100, lY + Math.sin(ang - 0.2) * 100, ex, ey);
+                ctx.quadraticCurveTo(lX + Math.cos(ang + 0.2) * 100, lY + Math.sin(ang + 0.2) * 100, lX, lY);
+                ctx.fill();
+            });
+
+            // Right Palm Trunk
+            ctx.strokeStyle = 'rgba(0, 229, 255, 0.12)';
+            ctx.lineWidth = 14;
+            ctx.beginPath();
+            ctx.moveTo(cardX + cardW - 15, cardY + cardH);
+            ctx.quadraticCurveTo(cardX + cardW - 160, cardY + cardH - 450, cardX + cardW - 90, cardY + 400);
+            ctx.stroke();
+
+            // Right Palm Fronds
+            ctx.fillStyle = 'rgba(0, 229, 255, 0.11)';
+            const rX = cardX + cardW - 90, rY = cardY + 400;
+            const anglesR = [1.5, 2.2, 2.8, 3.4, 3.9, 4.5];
+            anglesR.forEach(ang => {
+                ctx.beginPath();
+                ctx.moveTo(rX, rY);
+                const ex = rX + Math.cos(ang) * 180;
+                const ey = rY + Math.sin(ang) * 180;
+                ctx.quadraticCurveTo(rX + Math.cos(ang - 0.2) * 100, rY + Math.sin(ang - 0.2) * 100, ex, ey);
+                ctx.quadraticCurveTo(rX + Math.cos(ang + 0.2) * 100, rY + Math.sin(ang + 0.2) * 100, rX, rY);
+                ctx.fill();
+            });
+            ctx.restore();
+
+            // F. Inner Gold Frame Border Accent
+            const inset = 18;
+            ctx.lineWidth = 3;
+            ctx.strokeStyle = 'rgba(255, 222, 0, 0.35)';
+            drawRoundedRect(cardX + inset, cardY + inset, cardW - inset * 2, cardH - inset * 2, 34);
+            ctx.stroke();
+
+            ctx.restore();
+
+            // 4. Header Section inside Card
+            ctx.fillStyle = '#03150C';
+            ctx.beginPath();
+            ctx.moveTo(cardX, cardY + 50);
+            ctx.quadraticCurveTo(cardX, cardY, cardX + 50, cardY);
+            ctx.lineTo(cardX + cardW - 50, cardY);
+            ctx.quadraticCurveTo(cardX + cardW, cardY, cardX + cardW, cardY + 50);
+            ctx.lineTo(cardX + cardW, cardY + 230);
+            ctx.lineTo(cardX, cardY + 230);
+            ctx.closePath();
+            ctx.fill();
+
+            // Header Line Divider
+            ctx.lineWidth = 4; ctx.strokeStyle = '#FF007F';
+            ctx.beginPath(); ctx.moveTo(cardX, cardY + 230); ctx.lineTo(cardX + cardW, cardY + 230); ctx.stroke();
+
+            // Gold Headline "HACKER HOUSE"
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '900 92px "Playfair Display"';
+            ctx.textAlign = 'center';
+            ctx.fillText('HACKER HOUSE', w / 2 - 40, cardY + 120);
+
+            // Pink Devanagari "गोवा" Badge beside header
+            ctx.save();
+            ctx.fillStyle = '#FF007F';
+            drawRoundedRect(w / 2 + 340, cardY + 48, 150, 80, 18);
+            ctx.fill();
+            ctx.lineWidth = 5; ctx.strokeStyle = '#FFDE00'; ctx.stroke();
+
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '900 58px "Rozha One"';
+            ctx.textAlign = 'center';
+            ctx.fillText('गोवा', w / 2 + 415, cardY + 108);
+            ctx.restore();
+
+            // Header Subtext
+            ctx.fillStyle = '#F7F4EA';
+            ctx.font = '700 24px "Space Mono"';
+            ctx.textAlign = 'center';
+            ctx.fillText('OFFICIAL BUILDER PASS  •  GOA, INDIA 2026', w / 2, cardY + 190);
+
+            // 5. Central User Photo Frame (600x600)
+            const photoW = 700;
+            const photoH = 700;
+            const photoX = (w - photoW) / 2;
+            const photoY = cardY + 300; // 360
+
+            const zoom = parseFloat(document.getElementById('zoom').value);
+            const rot = parseFloat(document.getElementById('rotation').value) * Math.PI / 180;
+            const offsetX = parseFloat(document.getElementById('offsetX').value);
+            const offsetY = parseFloat(document.getElementById('offsetY').value);
+
+            ctx.save();
+            ctx.shadowColor = 'rgba(0,0,0,0.6)';
+            ctx.shadowBlur = 30;
+
+            ctx.fillStyle = '#F7F4EA';
+            drawRoundedRect(photoX - 12, photoY - 12, photoW + 24, photoH + 24, 36);
+            ctx.fill();
+
+            // Photo Clip
+            drawRoundedRect(photoX, photoY, photoW, photoH, 28);
+            ctx.clip();
+
+            if (userImg.complete && userImg.naturalWidth) {
+                ctx.save();
+                ctx.translate(photoX + photoW / 2 + offsetX, photoY + photoH / 2 + offsetY);
+                ctx.rotate(rot);
+
+                applyImageFilters();
+
+                const aspect = userImg.width / userImg.height;
+                let drawW, drawH;
+                if (aspect > 1) {
+                    drawH = photoH * zoom;
+                    drawW = drawH * aspect;
+                } else {
+                    drawW = photoW * zoom;
+                    drawH = drawW / aspect;
+                }
+                ctx.drawImage(userImg, -drawW / 2, -drawH / 2, drawW, drawH);
+                ctx.restore();
+            }
+            ctx.restore();
+
+            // Green Verified Indicator Dot Badge
+            ctx.save();
+            ctx.fillStyle = '#063D27';
+            drawRoundedRect(photoX + 20, photoY + 20, 270, 52, 26);
+            ctx.fill();
+            ctx.lineWidth = 3; ctx.strokeStyle = '#00E5FF'; ctx.stroke();
+
+            ctx.fillStyle = '#00E5FF';
+            ctx.beginPath(); ctx.arc(photoX + 46, photoY + 46, 10, 0, Math.PI * 2); ctx.fill();
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '800 20px "Space Mono"';
+            ctx.textAlign = 'left';
+            ctx.fillText('VERIFIED BUILDER', photoX + 68, photoY + 53);
+            ctx.restore();
+
+            // 6. Builder Info Section (Spaced with larger typography and generous padding)
+
+            // Name
+            const nameY = photoY + photoH + 115; // 1075
+            const name = document.getElementById('inpName').value.toUpperCase() || "BUILDER NAME";
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '900 64px "Syne"';
+            ctx.textAlign = 'center';
+            ctx.fillText(name, w / 2, nameY);
+
+            // Hot Pink Banner with Generated Builder Title
+            const bannerY = nameY + 60; // 1135
+            const tagline = document.getElementById('inpTagline').value.toUpperCase() || "10X BUILDER";
+            ctx.save();
+            ctx.fillStyle = '#FF007F';
+            drawRoundedRect(cardX + 70, bannerY, cardW - 140, 88, 24);
+            ctx.fill();
+            ctx.lineWidth = 4; ctx.strokeStyle = '#FFFFFF'; ctx.stroke();
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.font = '800 38px "Syne"';
+            ctx.textAlign = 'center';
+            ctx.fillText(tagline, w / 2, bannerY + 58);
+            ctx.restore();
+
+            // Role & Location (Increased font size to 38px)
+            const roleY = bannerY + 165; // 1300
+            const role = document.getElementById('inpRole').value.toUpperCase() || "DEVELOPER";
+            const location = document.getElementById('inpLocation').value.toUpperCase() || "GOA, IN";
+            ctx.fillStyle = '#F7F4EA';
+            ctx.font = '700 38px "Space Mono"';
+            ctx.textAlign = 'center';
+            ctx.fillText(`${role}  •  ${location}`, w / 2, roleY);
+
+            // Tech Stack Pills (Increased font size to 32px with 64px pill height)
+            const stackRaw = document.getElementById('inpStack').value;
+            const stackArray = stackRaw.split(',').map(s => s.trim().toUpperCase()).filter(s => s.length > 0).slice(0, 4);
+
+            if (stackArray.length > 0) {
+                ctx.save();
+                const pillY = roleY + 80; // 1380
+                const pillH = 64;
+                ctx.font = '700 32px "Space Mono"';
+
+                let totalWidth = 0;
+                const widths = stackArray.map(st => {
+                    const tw = ctx.measureText(st).width + 60;
+                    totalWidth += tw + 22;
+                    return tw;
+                });
+                totalWidth -= 22;
+
+                let startPillX = (w - totalWidth) / 2;
+                stackArray.forEach((st, idx) => {
+                    const pw = widths[idx];
+                    ctx.fillStyle = '#021A0F';
+                    drawRoundedRect(startPillX, pillY, pw, pillH, 20);
+                    ctx.fill();
+                    ctx.lineWidth = 4; ctx.strokeStyle = '#00E5FF'; ctx.stroke();
+
+                    ctx.fillStyle = '#00E5FF';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(st, startPillX + pw / 2, pillY + 44);
+
+                    startPillX += pw + 22;
+                });
+                ctx.restore();
+            }
+
+            // 7. Footer Pass Metadata & Barcode Visual
+            const footerY = cardY + cardH - 170; // 1710
+
+            // Line Separator
+            ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(255, 222, 0, 0.3)';
+            ctx.beginPath(); ctx.moveTo(cardX + 50, footerY); ctx.lineTo(cardX + cardW - 50, footerY); ctx.stroke();
+
+            // Status Badge
+            const status = document.getElementById('inpStatus').value;
+            ctx.fillStyle = '#FFDE00';
+            ctx.font = '800 30px "Syne"';
+            ctx.textAlign = 'left';
+            ctx.fillText(status, cardX + 60, footerY + 55);
+
+            ctx.fillStyle = '#A0A0A0';
+            ctx.font = '700 24px "Space Mono"';
+            ctx.fillText('PASS NO: HH26-2470', cardX + 60, footerY + 100);
+
+            // Programmatic Barcode Graphic
+            ctx.save();
+            const barX = cardX + cardW - 380;
+            const barY = footerY + 30;
+            const barW = 320;
+            const barH = 75;
+
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(barX, barY, barW, barH);
+
+            ctx.fillStyle = '#000000';
+            const barPattern = [4, 2, 6, 2, 8, 3, 2, 5, 2, 7, 3, 2, 6, 2, 4, 8, 2, 3, 5, 2, 7, 2, 4];
+            let currentBarX = barX + 16;
+            barPattern.forEach(bw => {
+                ctx.fillRect(currentBarX, barY + 8, bw, barH - 16);
+                currentBarX += bw + 5;
+            });
+            ctx.restore();
+        }
+
+        // =========================================================================
+        // TOAST NOTIFICATIONS
+        // =========================================================================
+        function showToast(msg, icon = '✨') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+            if (!toast) return;
+
+            toastMessage.innerText = msg;
+            toastIcon.innerText = icon;
+
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // =========================================================================
+        // LIVE WEBCAM SELFIE CAPTURE
+        // =========================================================================
+        let cameraStream = null;
+
+        async function openCameraModal() {
+            const modal = document.getElementById('cameraModal');
+            const video = document.getElementById('cameraVideo');
+
+            try {
+                cameraStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'user', width: { ideal: 800 }, height: { ideal: 800 } },
+                    audio: false
+                });
+                video.srcObject = cameraStream;
+                modal.classList.remove('hidden');
+            } catch (err) {
+                alert('Could not access camera. Please allow camera permissions or upload a photo file instead.');
+                console.error("Camera access error:", err);
+            }
+        }
+
+        function closeCameraModal() {
+            const modal = document.getElementById('cameraModal');
+            const video = document.getElementById('cameraVideo');
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(track => track.stop());
+                cameraStream = null;
+            }
+            video.srcObject = null;
+            modal.classList.add('hidden');
+        }
+
+        function captureSelfie() {
+            const video = document.getElementById('cameraVideo');
+            const cCanvas = document.getElementById('cameraCanvas');
+            const cCtx = cCanvas.getContext('2d');
+
+            if (!video || !video.videoWidth) {
+                alert("Camera feed not ready yet.");
+                return;
+            }
+
+            cCanvas.width = video.videoWidth;
+            cCanvas.height = video.videoHeight;
+
+            // Mirror video when drawing
+            cCtx.translate(cCanvas.width, 0);
+            cCtx.scale(-1, 1);
+            cCtx.drawImage(video, 0, 0, cCanvas.width, cCanvas.height);
+
+            const img = new Image();
+            img.onload = () => {
+                userImg = img;
+                const statusText = document.getElementById('uploadStatusText');
+                if (statusText) {
+                    statusText.innerText = "Selfie Snapped!";
+                    statusText.classList.add('text-brandYellow');
+                }
+                resetPhotoTransform();
+                closeCameraModal();
+                showToast("Live Selfie Snapped & Applied! 📸", "📸");
+            };
+            img.src = cCanvas.toDataURL('image/jpeg', 0.95);
+        }
+
+        // =========================================================================
+        // EXPORT & SHARE FUNCTIONS
+        // =========================================================================
+        function downloadOutput() {
+            const formatName = currentFormat === 'A' ? 'PFP_Overlay' : 'VIP_Builder_Pass';
+            const filename = `HHGoa2026_${formatName}.png`;
+
+            showToast("Downloading HD Graphic... 🚀", "💾");
+
+            // Strategy 1: Data URL Download
+            try {
+                const dataUrl = canvas.toDataURL('image/png', 1.0);
+                if (dataUrl && dataUrl.length > 100) {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = dataUrl;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    return;
+                }
+            } catch (err) {
+                console.warn("toDataURL export failed, trying toBlob strategy:", err);
+            }
+
+            // Strategy 2: Canvas Blob URL Download
+            try {
+                canvas.toBlob((blob) => {
+                    if (blob) {
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.download = filename;
+                        link.href = url;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        setTimeout(() => URL.revokeObjectURL(url), 1500);
+                    } else {
+                        alert("Could not generate image download.");
+                    }
+                }, 'image/png', 1.0);
+            } catch (e) {
+                alert("Download error: " + e.message);
+            }
+        }
+
+        function openShareModal() {
+            const tagline = document.getElementById('inpTagline')?.value || "";
+
+            let captionText = "";
+            if (currentFormat === 'A') {
+                captionText = `I'm getting ready for Hacker House Goa 2026! 🌴⚡\nCheck out my official PFP pass.\n\nSee you in Goa Oct 28-31! #FrameInGoa #HHGoa2026\n\nBuild yours at: https://aditya12705.github.io/HH-Goa/`;
+            } else {
+                captionText = `Claimed my official Hacker House Goa 2026 Builder Pass! 🌴🚀\n"${tagline}"\n\nReady to build, ship, and launch in Goa! #FrameInGoa #HHGoa2026\n\nGenerate your pass: https://aditya12705.github.io/HH-Goa/`;
+            }
+
+            document.getElementById('tweetCaption').value = captionText;
+
+            // Show Web Share container if supported
+            const webShareBtn = document.getElementById('webShareContainer');
+            if (navigator.share && webShareBtn) {
+                webShareBtn.classList.remove('hidden');
+            }
+
+            document.getElementById('shareModal').classList.remove('hidden');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.add('hidden');
+        }
+
+        function copyTweetText() {
+            const text = document.getElementById('tweetCaption').value;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Caption copied to clipboard! 📋", "✨");
+            }).catch(() => {
+                showToast("Copy failed, please select text manually.", "⚠️");
+            });
+        }
+
+        function executeTweetShare() {
+            const text = encodeURIComponent(document.getElementById('tweetCaption').value);
+            // Uses official x.com tweet intent link with hashtag #FrameInGoa pre-filled
+            window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
+        }
+
+        async function executeWebShare() {
+            const text = document.getElementById('tweetCaption').value;
+            try {
+                canvas.toBlob(async (blob) => {
+                    if (blob && navigator.canShare && navigator.canShare({ files: [new File([blob], 'HHGoa2026.png', { type: 'image/png' })] })) {
+                        const file = new File([blob], 'HHGoa2026_Pass.png', { type: 'image/png' });
+                        await navigator.share({
+                            title: 'Hacker House Goa 2026',
+                            text: text,
+                            files: [file]
+                        });
+                    } else {
+                        await navigator.share({
+                            title: 'Hacker House Goa 2026',
+                            text: text,
+                            url: 'https://hhgoa.com'
+                        });
+                    }
+                }, 'image/png');
+            } catch (err) {
+                console.log("Web share cancelled or unsupported", err);
+            }
+        }
+    </script>
+</body>
+
+</html>
