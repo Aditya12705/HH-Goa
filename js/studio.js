@@ -194,36 +194,90 @@
     reader.readAsDataURL(blob);
   };
 
-  /* ---------- Selfie Capture ---------- */
-  window.captureSelfie = async function captureSelfie() {
+  /* ---------- Toast Notification ---------- */
+  window.showToast = function showToast(msg, icon) {
+    icon = icon || '✨';
+    var toast = document.getElementById('toast');
+    var toastMessage = document.getElementById('toastMessage');
+    var toastIcon = document.getElementById('toastIcon');
+    if (!toast) return;
+
+    toastMessage.innerText = msg;
+    toastIcon.innerText = icon;
+
+    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = '1';
+
+    setTimeout(function() {
+      toast.style.transform = 'translateY(100px)';
+      toast.style.opacity = '0';
+    }, 3000);
+  };
+
+  /* ---------- Live Selfie Camera Modal & Capture ---------- */
+  var cameraStream = null;
+
+  window.openCameraModal = async function openCameraModal() {
+    var modal = document.getElementById('cameraModal');
+    var video = document.getElementById('cameraVideo');
+    if (!modal || !video) return;
+
     try {
-      var stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: 1080, height: 1080 } });
-      var video = document.createElement('video');
-      video.srcObject = stream;
-      video.setAttribute('playsinline', '');
-      await video.play();
-
-      // Wait a bit for camera to warm up
-      await new Promise(function(r) { setTimeout(r, 800); });
-
-      var offCanvas = document.createElement('canvas');
-      offCanvas.width = video.videoWidth;
-      offCanvas.height = video.videoHeight;
-      offCanvas.getContext('2d').drawImage(video, 0, 0);
-
-      stream.getTracks().forEach(function(t) { t.stop(); });
-
-      var img = new Image();
-      img.onload = function() {
-        userImg = img;
-        var st = document.getElementById('uploadStatusText');
-        if (st) { st.innerText = 'Selfie Captured!'; st.style.color = '#FFDE00'; }
-        resetPhotoTransform();
-      };
-      img.src = offCanvas.toDataURL('image/jpeg', 0.9);
+      cameraStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: { ideal: 1080 }, height: { ideal: 1080 } },
+        audio: false
+      });
+      video.srcObject = cameraStream;
+      modal.classList.remove('hidden');
     } catch (err) {
-      alert('Camera access denied or unavailable.');
+      alert('Could not access camera. Please allow camera permissions or upload a photo instead.');
+      console.error('Camera access error:', err);
     }
+  };
+
+  window.closeCameraModal = function closeCameraModal() {
+    var modal = document.getElementById('cameraModal');
+    var video = document.getElementById('cameraVideo');
+    if (cameraStream) {
+      cameraStream.getTracks().forEach(function(track) { track.stop(); });
+      cameraStream = null;
+    }
+    if (video) video.srcObject = null;
+    if (modal) modal.classList.add('hidden');
+  };
+
+  window.confirmCameraSelfie = function confirmCameraSelfie() {
+    var video = document.getElementById('cameraVideo');
+    var cCanvas = document.getElementById('cameraCanvas');
+    if (!video || !video.videoWidth) {
+      alert('Camera feed not ready.');
+      return;
+    }
+
+    cCanvas.width = video.videoWidth;
+    cCanvas.height = video.videoHeight;
+    var cCtx = cCanvas.getContext('2d');
+    cCtx.translate(cCanvas.width, 0);
+    cCtx.scale(-1, 1);
+    cCtx.drawImage(video, 0, 0, cCanvas.width, cCanvas.height);
+
+    var img = new Image();
+    img.onload = function() {
+      userImg = img;
+      var st = document.getElementById('uploadStatusText');
+      if (st) {
+        st.innerText = 'Selfie Snapped!';
+        st.style.color = '#FFDE00';
+      }
+      resetPhotoTransform();
+      closeCameraModal();
+      showToast('Live Selfie Snapped & Applied! 📸', '📸');
+    };
+    img.src = cCanvas.toDataURL('image/jpeg', 0.95);
+  };
+
+  window.captureSelfie = function captureSelfie() {
+    openCameraModal();
   };
 
   /* ---------- Drag & Drop Setup ---------- */

@@ -29,7 +29,12 @@
     var overlay = document.getElementById('shareModal');
     if (overlay) overlay.classList.remove('hidden');
 
-    // On mobile, try native share first
+    var webShareBtn = document.getElementById('webShareContainer');
+    if (navigator.share && webShareBtn) {
+      webShareBtn.style.display = 'block';
+    }
+
+    // On mobile, try native share automatically
     if (navigator.share && navigator.canShare && /Mobi|Android/i.test(navigator.userAgent)) {
       shareNative(caption);
     }
@@ -51,18 +56,25 @@
         btn.textContent = '✓ Copied!';
         setTimeout(function() { btn.textContent = orig; }, 2000);
       }
+      if (window.showToast) window.showToast('Caption copied to clipboard! 📋', '✨');
     }).catch(function() {
-      // Fallback
       var ta = document.getElementById('tweetCaption');
       ta.select();
       document.execCommand('copy');
+      if (window.showToast) window.showToast('Caption copied to clipboard! 📋', '✨');
     });
   };
 
   /* ---------- Launch Tweet on X ---------- */
   window.executeTweetShare = function executeTweetShare() {
     var text = encodeURIComponent(document.getElementById('tweetCaption').value);
-    window.open('https://twitter.com/intent/tweet?text=' + text, '_blank');
+    window.open('https://x.com/intent/tweet?text=' + text, '_blank');
+  };
+
+  /* ---------- Manual Trigger Native Share ---------- */
+  window.executeWebShare = function executeWebShare() {
+    var caption = document.getElementById('tweetCaption').value;
+    shareNative(caption);
   };
 
   /* ---------- Native Web Share (Mobile) ---------- */
